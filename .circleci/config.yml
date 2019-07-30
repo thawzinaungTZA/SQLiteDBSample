@@ -20,6 +20,7 @@ jobs:
       - run:
           name: Build debug APK and release APK
           command: |
+            ./gradlew assembleDebug
             ./gradlew crashlyticsUploadDistributionDebug
 
 workflows:
