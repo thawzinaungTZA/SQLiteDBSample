@@ -19,6 +19,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            ext.betaDistributionReleaseNotes="Release Notes for first build."
+            ext.betaDistributionEmails="thawzinaung.tza94@gmail.com"
+            ext.betaDistributionNotifications=true
+        }
     }
 }
 
@@ -33,4 +38,13 @@ dependencies {
 
     implementation "com.android.support:cardview-v7:28.0.0"
     implementation "com.android.support:recyclerview-v7:28.0.0"
+    compile('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
+        transitive = true;
+    }
+}
+
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
 }
