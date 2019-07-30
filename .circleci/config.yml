@@ -1,5 +1,6 @@
+version: 2
 jobs:
-  build:
+  test_build:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-28-alpha
@@ -20,11 +21,12 @@ jobs:
           name: Build debug APK and release APK
           command: |
             ./gradlew crashlyticsUploadDistributionDebug
+
 workflows:
   version: 2
-  build_and_test:
+  test_build:
     jobs:
-      - build:
-        filters:
-          branches:
-            only: master
+      - test_build:
+          filters:
+            branches:
+              only: master
